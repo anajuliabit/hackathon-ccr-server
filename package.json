@@ -26,12 +26,14 @@
   "dependencies": {
     "@prisma/client": "^2.0.0",
     "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.5.0",
     "apollo-server": "^2.14.4",
     "bcryptjs": "^2.4.3",
     "eslint": "^7.2.0",
     "graphql": "^15.1.0",
     "graphql-anywhere": "^4.2.7",
     "graphql-tag": "^2.10.3",
+    "jsonwebtoken": "^8.5.1",
     "ts-node-dev": "^1.0.0-pre.47"
   }
 }

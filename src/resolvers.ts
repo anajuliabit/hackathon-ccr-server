@@ -6,13 +6,13 @@ import { User } from '@prisma/client';
 
 export const resolvers: Resolvers = {
   Query: {
-    user: async (
-      parent: any,
-      { id }: any,
-      { prisma }
-    ): Promise<User | null> => {
+    user: async (parent, { id }: User, { prisma }): Promise<User | null> => {
       const service = new UserService(prisma);
       return service.get(id);
+    },
+    login: async (parent, { email, password }, { prisma }) => {
+      const service = new UserService(prisma);
+      return service.login(email, password);
     },
   },
   Mutation: {
