@@ -1,6 +1,8 @@
 import { gql } from 'apollo-server';
 
 export const typeDefs = gql`
+  scalar Date
+
   type User {
     id: ID!
     name: String
@@ -11,6 +13,14 @@ export const typeDefs = gql`
     token: String
     email: String
   }
+  type Journey {
+    id: ID!
+    jumpingoff: String
+    destination: String
+    inputtime: Date
+    outputtime: Date
+    userid: User
+  }
   type Query {
     user(id: ID!): User!
     login(email: String!, password: String!): Authentication!
@@ -18,6 +28,12 @@ export const typeDefs = gql`
   type Mutation {
     registerUser(name: String!, email: String!, password: String!): User!
     login(email: String!, password: String!): LoginResponse!
+    startJourney(
+      jumpingoff: String!
+      destination: String!
+      outputtime: Date!
+      userid: ID!
+    ): Journey!
   }
   type LoginResponse {
     token: String

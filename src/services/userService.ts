@@ -1,7 +1,7 @@
 import { PrismaClient, User, UserClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-export default class StationService {
+export default class UserService {
   constructor(private repository: PrismaClient) {}
 
   async create(name: string, email: string, password: string): Promise<User> {
@@ -36,7 +36,7 @@ export default class StationService {
       },
       'my-secret-from-env-file-in-prod',
       {
-        expiresIn: '30d', // token will expire in 30days
+        expiresIn: '30d',
       }
     );
     return {
