@@ -8,9 +8,7 @@
     "start": "node dist/server",
     "clean": "rm -rf dist",
     "build": "npm -s run clean && npm -s run generate && tsc",
-    "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
-    "generate:prisma": "prisma generate",
-    "generate:nexus": "ts-node --transpile-only src/schema",
+    "generate": "prisma generate",
     "postinstall": "npm -s run generate",
     "dev": "ts-node-dev --no-notify --respawn --transpileOnly src/server"
   },
@@ -27,6 +25,13 @@
   },
   "dependencies": {
     "@prisma/client": "^2.0.0",
-    "eslint": "^7.2.0"
+    "@types/bcryptjs": "^2.4.2",
+    "apollo-server": "^2.14.4",
+    "bcryptjs": "^2.4.3",
+    "eslint": "^7.2.0",
+    "graphql": "^15.1.0",
+    "graphql-anywhere": "^4.2.7",
+    "graphql-tag": "^2.10.3",
+    "ts-node-dev": "^1.0.0-pre.47"
   }
 }
