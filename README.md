@@ -22,7 +22,7 @@ Este projeto foi desenvolvido durante o Hackathon CCR, cujo objetivo era gerar i
 - [x] Cadastro de jornada
 - [ ] Moods
 - [ ] Criar microsserviço que coleta as informações da API do google maps sobre os restaurantes e ponto de paradas das rodovias brasileiras.
-- [ ] Criar microsserviço para realizar indicação de alimentos e atividades personalizadas de acordo com a rota e mood do usuário.
+- [ ] Criar microsserviço para realizar indicação de alimentos e atividades personalizadas de acordo com a geolocalizacão e mood do usuário.
 
 ## Setup
 
