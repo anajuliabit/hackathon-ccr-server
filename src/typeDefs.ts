@@ -19,7 +19,6 @@ export const typeDefs = gql`
     destination: String
     inputtime: Date
     outputtime: Date
-    userid: User
   }
   type Query {
     user(id: ID!): User!
@@ -32,7 +31,6 @@ export const typeDefs = gql`
       jumpingoff: String!
       destination: String!
       outputtime: Date!
-      userid: ID!
     ): Journey!
   }
   type LoginResponse {

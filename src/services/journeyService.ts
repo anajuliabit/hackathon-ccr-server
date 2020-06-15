@@ -1,4 +1,4 @@
-import { PrismaClient, Journey } from '@prisma/client';
+import { PrismaClient, Journey, User } from '@prisma/client';
 
 export default class JourneyService {
   constructor(private repository: PrismaClient) {}
@@ -6,8 +6,7 @@ export default class JourneyService {
   async start(
     jumpingOff: string,
     destination: string,
-    outputTime: Date,
-    userId: number
+    outputTime: Date
   ): Promise<Journey> {
     return await this.repository.journey.create({
       data: {
@@ -15,7 +14,6 @@ export default class JourneyService {
         destination: destination,
         inputtime: new Date(Date.now()),
         outputtime: outputTime,
-        userid: userId,
       },
     });
   }

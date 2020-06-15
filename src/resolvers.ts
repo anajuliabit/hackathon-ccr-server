@@ -1,9 +1,9 @@
 import bcrypt from 'bcryptjs';
 
-import UserService from '../services/userService';
-import { Resolvers } from '../types/graphql';
+import UserService from './services/userService';
+import { Resolvers } from './types/graphql';
 import { User, Journey } from '@prisma/client';
-import JourneyService from '../services/journeyService';
+import JourneyService from './services/journeyService';
 
 export const resolvers: Resolvers = {
   Query: {
@@ -28,11 +28,11 @@ export const resolvers: Resolvers = {
     },
     startJourney: async (
       parent,
-      { jumpingOff, destination, outputTime, user },
+      { jumpingOff, destination, outputTime },
       { prisma }
     ): Promise<Journey> => {
       const service = new JourneyService(prisma);
-      return service.start(jumpingOff, destination, new Date(outputTime), user);
+      return service.start(jumpingOff, destination, new Date(outputTime));
     },
   },
 };

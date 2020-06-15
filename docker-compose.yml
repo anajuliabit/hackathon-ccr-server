@@ -1,0 +1,23 @@
+version: '3'
+services:
+  app:
+    container_name: hackathon_ccr_server
+    restart: always
+    build: .
+    ports:
+      - 3000:3000
+    links:
+      - hackathon_ccr_db
+    depends_on:
+      - hackathon_ccr_db
+  hackathon_ccr_db:
+    image: postgres:9.5-alpine
+    restart: always
+    container_name: hackathon_ccr_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./resources/init.sh:/docker-entrypoint-initdb.d/init.sh
